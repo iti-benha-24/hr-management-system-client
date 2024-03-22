@@ -1,0 +1,98 @@
+<div class="container text-center bg-dark py-2 text-white"> 
+    <p>Salary works!</p>
+    
+    <!-- <button [routerLink]="['/salaryReport']" class="btn btn-primary">Salaries Report</button> -->
+</div>
+<div class="container py-3">
+    <div class="d-flex justify-content-between flex-row-reverse">
+        <div class="d-flex">
+            <button class="btn btn-secondary me-3" (click)="getAttendancesByName(empName)">Search</button>
+            <input type="text" class="form-control me-3" name="search" [(ngModel)]="empName" placeholder="search">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="d-flex justify-content-start flex-row-reverse">
+        <select class="form-control w-25 me-3" name="month" [(ngModel)]="monthNumber" >
+        <option value="0">--select month--</option>
+        <option *ngFor="let m of months" [value]="m.id">{{m.name}}</option>
+        </select>
+        
+        <input type="number" class="form-control w-25 me-3" name="year" [(ngModel)]="yearNumber" placeholder="year">
+        <button class="btn btn-secondary me-3" (click)="getSalaryReportByDate(monthNumber, yearNumber)">Display</button>
+    </div>
+</div>
+<div class="container my-4">
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>
+                employee Name
+            </th>
+            <th>
+                department Name
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+                days of attendance
+            </th>
+            <th>
+                days of absent
+            </th>
+            <th>
+                overtime by hours
+            </th>
+            <th>
+                discount by hours
+            </th>
+            <th>
+                total overtime
+            </th>
+            <th>
+                 total discount
+            </th>
+            <th>
+                 Net Salary
+            </th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let a of employees">
+            <td>
+                {{a.employeeName}}
+            </td>
+            <td>
+                {{a.depatmentName}}
+            </td>
+            <td>
+                {{a.salary}}
+            </td>
+            <td>
+                {{a.attend}}
+            </td>
+            <td>
+                {{a.absent}}
+            </td>
+            <td>
+                {{a.additional_hours}}
+            </td>
+            <td>
+                {{a.discount_hours}}
+            </td>
+            <td>
+                {{a.totalAditionalHours}}
+            </td>
+            <td>
+                {{a.totalDiscountHours}}
+            </td>
+            <td>
+                {{a.totalNetSalary}}
+            </td>  
+           
+        </tr>
+    </tbody>
+</table>
+</div>
