@@ -13,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     PublicHolidayGetAllComponent,
     PublicHolidayUpdateComponent,
-    PublicHolidayInsertComponent
+    PublicHolidayInsertComponent,
+   
   ],
   imports: [
     BrowserModule,
