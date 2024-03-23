@@ -10,8 +10,8 @@ import { AttendanceService } from 'src/services/attendance.service';
 })
 export class AttendanceFormComponent implements OnInit{
   employees:any;
-  myForm:FormGroup;
   attendId:number;
+  myForm:FormGroup;
   constructor(private attendanceService:AttendanceService,private fb:FormBuilder,private router:Router,private active:ActivatedRoute) {
     this.attendId= Number(this.active.snapshot.paramMap.get("id"));
     this.myForm=this.fb.group({
