@@ -14,4 +14,9 @@ export class HeaderComponent {
     this.loginService.logout();
   }
 
+  isLoggedIn():boolean{
+    return this.loginService.isLoggedIn();
+  }
+
+
 }
