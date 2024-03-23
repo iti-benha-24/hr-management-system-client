@@ -9,13 +9,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AttendanceComponent,
     SalaryReportComponent,
-    AttendanceFormComponent
+    AttendanceFormComponent,
+    RegistrationComponent,
+    HeaderComponent,
+    LoginComponent
     
   ],
   imports: [
