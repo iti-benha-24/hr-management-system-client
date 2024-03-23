@@ -30,33 +30,26 @@ constructor(private http:HttpClient) {
 getAllAttendance(){
   return this.http.get(this.url);
 }
-
 getAllEmployee(){
   return this.http.get("https://localhost:7057/api/Employees/GetEmployees")
 }
 getEmployeeAttendanceById(id:number){
   return this.http.get("https://localhost:7057/api/Attendance/getbyId/"+id);
 }
-
 addEmployeAttendance(employeeAttend:IAttendance):Observable<any>{
  return this.http.post<any>("https://localhost:7057/api/Attendance/AddEmployeeAttendance",employeeAttend);
 }
-
 deleteAttendance(id:number):Observable<any>
 {
   return this.http.delete<any>("https://localhost:7057/api/Attendance/DeleteEmployeeAttendance/"+id);
-
 }
-
 editAttendance(id:number,attendance:any):Observable<any>{
   return this.http.put<any>("https://localhost:7057/api/Attendance/EditEmployeeAttendance/"+id,attendance);
 }
-
 filterAttendanceByDate(startDate:any, endDate:any)
 {
   return this.http.get("https://localhost:7057/api/Attendance/GetEmployeeAttendanceByDate?startDate="+startDate+"&endDate="+endDate);
 }
-
 filterAttendanceByName(name:any)
 {
   return this.http.get("https://localhost:7057/api/Attendance/getEmployeeByName?name="+name);
