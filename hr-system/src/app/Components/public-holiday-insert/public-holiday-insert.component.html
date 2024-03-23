@@ -1,19 +1,6 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <form (ngSubmit)="insert()" class="mt-5">
-        <div class="mb-3">
-          <label for="name" class="form-label">Enter Holiday Name</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter Holiday Name" name="name" [(ngModel)]="name">
-        </div>
-        <div class="mb-3">
-          <label for="day" class="form-label">Enter Holiday Date</label>
-          <input type="datetime-local" class="form-control" id="day" placeholder="Enter Holiday Date" name="day" [(ngModel)]="day">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
-</div>
-
+<form (ngSubmit)="insert()">
+    <input type="text" placeholder="Enter Holiday Name" name="name" [(ngModel)]="name">
+    <input type="datetime-local" placeholder="Enter Holiday Date" name="day" [(ngModel)]="day">
+    <input type="submit" value="Submit">
+  </form>
   
