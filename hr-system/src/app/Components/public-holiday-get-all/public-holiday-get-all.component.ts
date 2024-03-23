@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PublicHolidayService } from 'src/app/Services/public-holiday.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class PublicHolidayGetAllComponent implements OnInit {
   
   holidays : any [] = [] ;
   
-  constructor( private holidayservice : PublicHolidayService){}
+  constructor( private holidayservice : PublicHolidayService , private router : Router ){}
 
   ngOnInit(): void {
     this.getAllHolidays();
@@ -22,9 +23,12 @@ export class PublicHolidayGetAllComponent implements OnInit {
 
 
   delete(id : number){
-    this.holidayservice.Delete(id).subscribe();
-    this.getAllHolidays();
+    this.holidayservice.Delete(id).subscribe( (o) => { this.getAllHolidays(); }) ;
   }
 
+  update( name : any , day : string  , id : number ){
+    this.holidayservice.setData( name , day , id  );
+    this.router.navigateByUrl('/update');
+  }
   
 }

@@ -6,6 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PublicHolidayService {
+
+  private name : any;
+  private day : any ;
+  private id : any ;
   constructor( private httpClient : HttpClient) { }
 
 
@@ -30,6 +34,16 @@ export class PublicHolidayService {
   Update ( holidayData : any  , id : number ) : Observable<any>{
 
     return this.httpClient.put(`https://localhost:7057/api/PublicHolidays/Update/${id}` , holidayData);
+  }
+
+  setData( name : any , day : any , id : any  ){
+    this.name = name ;
+    this.day = day ;
+    this.id = id ;
+  }
+
+  getData(){
+    return [this.name , this.day , this.id ] ;
   }
 
 }
