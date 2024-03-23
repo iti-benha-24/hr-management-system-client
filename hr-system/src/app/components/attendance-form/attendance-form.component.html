@@ -1,0 +1,37 @@
+<p>attendance-form works!</p>
+<div class="container py-3">
+
+<form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div class="my-3">
+        <label for="employeeId" class="form-label">Employee Name</label>
+        <select class="form-select" formControlName="employeeId" name="employeeId" >
+            <option value="0">Select an employee</option>
+            <option *ngFor="let emp of employees" [value]="emp.id">{{emp.firstName}}</option>
+        </select>
+        <div *ngIf="myForm.get('employeeId')?.errors && (myForm.get('employeeId')?.dirty || myForm.get('employeeId')?.touched)">
+            <div *ngIf="myForm.get('employeeId')?.errors?.['required']" class="text-danger">Employee selection is required.</div>
+        </div>
+    </div>
+    <div class="my-3">
+        <label for="arrivalTime" class="form-label">arrivalTime</label>
+        <input class="form-control" formControlName="arrivalTime" type="time" name="arrivalTime" placeholder="enter the arrivalTime">
+        <div *ngIf="myForm.get('arrivalTime')?.invalid && (myForm.get('arrivalTime')?.dirty || myForm.get('arrivalTime')?.touched)">
+            <div *ngIf="myForm.get('arrivalTime')?.errors?.['required']" class="text-danger">Arrival time is required.</div>
+        </div>
+    </div>
+    <div class="my-3">
+        <label for="leaveTime" class="form-label">leaveTime</label>
+        <input class="form-control" formControlName="leaveTime" type="time" name="leaveTime" placeholder="enter the leaveTime">
+    </div>
+    <div class="my-3">
+        <label for="date" class="form-label">Date</label>
+        <input class="form-control" formControlName="date" type="date" name="date" placeholder="enter the date">
+        <div *ngIf="myForm.get('date')?.errors && (myForm.get('date')?.dirty || myForm.get('date')?.touched)">
+            <div *ngIf="myForm.get('date')?.errors?.['required']" class="text-danger">date is required.</div>
+        </div>
+    </div>
+    <div>
+        <input class="btn btn-primary" type="submit" value="Save"/>
+    </div>
+</form>
+</div>

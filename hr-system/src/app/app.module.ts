@@ -8,8 +8,25 @@ import { PublicHolidayUpdateComponent } from './Components/public-holiday-update
 import { PublicHolidayInsertComponent } from './Components/public-holiday-insert/public-holiday-insert.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { SalaryReportComponent } from './components/salary-report/salary-report.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AttendanceComponent } from './components/attendance/attendance.component';
+import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+
 @NgModule({
   declarations: [
+    AppComponent,
+    AttendanceComponent,
+    SalaryReportComponent,
+    AttendanceFormComponent,
+    RegistrationComponent,
+    HeaderComponent,
+    LoginComponent
+    
     AppComponent,
     PublicHolidayGetAllComponent,
     PublicHolidayUpdateComponent,
@@ -22,6 +39,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule ,
     ReactiveFormsModule ,
  
+    AppRoutingModule,
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+   
+    
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
