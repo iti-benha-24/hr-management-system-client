@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
-import { PublicHolidayService } from 'src/app/Services/public-holiday.service';
+import { PublicHolidayService } from 'src/services/public-holiday.service';
 
 @Component({
   selector: 'app-public-holiday-insert',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { PublicHolidayService } from 'src/app/Services/public-holiday.service';
+import { PublicHolidayService } from 'src/services/public-holiday.service';
 
 @Component({
   selector: 'app-public-holiday-update',
