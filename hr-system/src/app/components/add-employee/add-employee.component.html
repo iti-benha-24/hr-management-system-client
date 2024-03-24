@@ -1,0 +1,346 @@
+{{ employeeForm.value | json }}
+<div class="container">
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="fname">firstName</label>
+      <input
+        type="text"
+        name="fname"
+        class="form-control"
+        formControlName="firstName"
+        id="fname"
+        aria-describedby="emailHelp"
+        placeholder="Enter First Name"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('firstName')?.errors &&
+          (employeeForm.get('firstName')?.dirty ||
+            employeeForm.get('firstName')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('firstName')?.errors?.['required']"
+          class="text-danger"
+        >
+          First Name is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fname">LastName</label>
+      <input
+        formControlName="lastName"
+        type="text"
+        name="lname"
+        class="form-control"
+        id="Lname"
+        aria-describedby="emailHelp"
+        placeholder="Enter Last Name"
+      />
+    </div>
+    <div
+      *ngIf="
+        employeeForm.get('lastName')?.errors &&
+        (employeeForm.get('lastName')?.dirty ||
+          employeeForm.get('lastName')?.touched)
+      "
+    >
+      <div
+        *ngIf="employeeForm.get('lastName')?.errors?.['required']"
+        class="text-danger"
+      >
+        Last Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input
+        formControlName="country"
+        type="text"
+        name="country"
+        class="form-control"
+        id="country"
+        aria-describedby="emailHelp"
+        placeholder="Enter Country"
+      />
+    </div>
+    <div
+      *ngIf="
+        employeeForm.get('country')?.errors &&
+        (employeeForm.get('country')?.dirty ||
+          employeeForm.get('country')?.touched)
+      "
+    >
+      <div
+        *ngIf="employeeForm.get('country')?.errors?.['required']"
+        class="text-danger"
+      >
+        country is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input
+        formControlName="city"
+        name="city"
+        type="text"
+        class="form-control"
+        id="city"
+        aria-describedby="emailHelp"
+        placeholder="Enter City"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('city')?.errors &&
+          (employeeForm.get('city')?.dirty || employeeForm.get('city')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('city')?.errors?.['required']"
+          class="text-danger"
+        >
+          City is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="fname">Gender</label>
+      <input
+        formControlName="gender"
+        name="gender"
+        type="text"
+        class="form-control"
+        id="gender"
+        aria-describedby="emailHelp"
+        placeholder="Enter Gender"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('gender')?.errors &&
+          (employeeForm.get('gender')?.dirty ||
+            employeeForm.get('gender')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('city')?.errors?.['required']"
+          class="text-danger"
+        >
+          City is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="bd-date">Birth Date</label>
+      <input
+        formControlName="birthDate"
+        name="birthdate"
+        type="date"
+        class="form-control"
+        id="db-date"
+        aria-describedby="emailHelp"
+        placeholder="Enter birth date"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('birthDate')?.errors &&
+          (employeeForm.get('birthDate')?.dirty ||
+            employeeForm.get('birthDate')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('birthDate')?.errors?.['required']"
+          class="text-danger"
+        >
+          birthdate is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nation">Nationality</label>
+      <input
+        formControlName="nationality"
+        name="nationality"
+        type="text"
+        class="form-control"
+        id="nation"
+        aria-describedby="emailHelp"
+        placeholder="Enter nationality"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('nationality')?.errors &&
+          (employeeForm.get('nationality')?.dirty ||
+            employeeForm.get('nationality')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('nationality')?.errors?.['required']"
+          class="text-danger"
+        >
+          nationality required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="nationid">NationaliID</label>
+      <input
+        formControlName="nationalId"
+        name="nationalid"
+        type="string"
+        class="form-control"
+        id="nationid"
+        aria-describedby="emailHelp"
+        placeholder="Enter nationalityID"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('nationalId')?.errors &&
+          (employeeForm.get('nationalId')?.dirty ||
+            employeeForm.get('nationalId')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('nationalId')?.errors?.['required']"
+          class="text-danger"
+        >
+          nationalid is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="hireDate">HireDate</label>
+      <input
+        formControlName="hireDate"
+        name="hiredate"
+        type="date"
+        class="form-control"
+        id="hiredate"
+        aria-describedby="emailHelp"
+        placeholder="Enter hiredate"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('hireDate')?.errors &&
+          (employeeForm.get('hireDate')?.dirty ||
+            employeeForm.get('hireDate')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('hireDate')?.errors?.['required']"
+          class="text-danger"
+        >
+          hiredate is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="salary">Salary</label>
+      <input
+        formControlName="salary"
+        name="salary"
+        type="number"
+        class="form-control"
+        id="salary"
+        aria-describedby="emailHelp"
+        placeholder="Enter salary"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('salary')?.errors &&
+          (employeeForm.get('salary')?.dirty ||
+            employeeForm.get('salary')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('salary')?.errors?.['required']"
+          class="text-danger"
+        >
+          City is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="arriveTime">Arrive time</label>
+      <input
+        formControlName="arrivalTime"
+        name="arriveTime"
+        type="time"
+        class="form-control"
+        id="arriveTime"
+        aria-describedby="emailHelp"
+        placeholder="Enter arrive time"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('arrivalTime')?.errors &&
+          (employeeForm.get('arrivalTime')?.dirty ||
+            employeeForm.get('arrivalTime')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('arrivalTime')?.errors?.['required']"
+          class="text-danger"
+        >
+          arrivetime is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="leaveTime">Leave time</label>
+      <input
+        formControlName="leaveTime"
+        name="leaveTime"
+        type="time"
+        class="form-control"
+        id="leaveTime"
+        aria-describedby="emailHelp"
+        placeholder="Enter leave time"
+      />
+      <div
+        *ngIf="
+          employeeForm.get('leaveTime')?.errors &&
+          (employeeForm.get('leaveTime')?.dirty ||
+            employeeForm.get('leaveTime')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('leaveTime')?.errors?.['required']"
+          class="text-danger"
+        >
+          leavetime is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="my-3">
+      <label for="departmentId" class="form-label">Department Name</label>
+      <select class="form-select" formControlName="departmentId" name="deptId">
+        <option value="0">Select an department</option>
+        <option *ngFor="let dept of departments" [value]="dept.id">
+          {{ dept.deptName }}
+        </option>
+      </select>
+      <div
+        *ngIf="
+          employeeForm.get('departmentId')?.errors &&
+          (employeeForm.get('departmentId')?.dirty ||
+            employeeForm.get('departmentId')?.touched)
+        "
+      >
+        <div
+          *ngIf="employeeForm.get('departmentId')?.errors?.['required']"
+          class="text-danger"
+        >
+          department is required.
+        </div>
+      </div>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
