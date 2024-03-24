@@ -17,6 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { GetEmpByIdComponent } from './components/get-emp-by-id/get-emp-by-id.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { GetEmpByIdComponent } from './components/get-emp-by-id/get-emp-by-id.co
     EmployeeComponent,
     GetEmpByIdComponent,
     AddEmployeeComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

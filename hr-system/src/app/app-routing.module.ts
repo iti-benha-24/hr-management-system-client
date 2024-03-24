@@ -14,9 +14,12 @@ import { LoginComponent } from './components/login/login.component';
 import { PublicHolidayInsertComponent } from './components/public-holiday-insert/public-holiday-insert.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
+import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   // Add routes here
-  { path: 'home', component: AttendanceComponent, canActivate: [AuthGuardService] },
+
+  
+  { path: 'home', component:HomeComponent , canActivate: [AuthGuardService] },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'attendance', component: AttendanceComponent, canActivate: [AuthGuardService] },
