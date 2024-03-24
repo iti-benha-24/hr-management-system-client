@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component } from "@angular/core";
+import { AttendanceComponent } from './components/attendance/attendance.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,3 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'hr-system';
 }
+
