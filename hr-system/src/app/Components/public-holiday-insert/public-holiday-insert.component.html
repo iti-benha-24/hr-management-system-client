@@ -1,6 +1,6 @@
 
   <div class="container mt-5">
-    <form [formGroup]="formgroup" (ngSubmit)="insert()" class="bg-light p-4 rounded">
+    <form [formGroup]="formgroup" (ngSubmit)="onSubmit()" class="bg-light p-4 rounded">
       <div class="form-group">
         <label for="holidayName">Holiday Name</label>
         <input type="text" class="form-control" id="holidayName" placeholder="Enter Holiday Name" formControlName="name">
@@ -11,9 +11,11 @@
       </div>
       <div class="form-group">
         <label for="holidayDate">Holiday Date</label>
-        <input type="datetime-local" class="form-control" id="holidayDate" placeholder="Enter Holiday Date" formControlName="day">
+        <input type="date" class="form-control" id="holidayDate" placeholder="Enter Holiday Date" formControlName="day">
       </div>
-      <button type="submit" class="btn btn-primary">Insert</button>
+
+      <button type="submit" class="btn btn-primary">{{id == 0 ? "insert" :"update"}}</button>
+      
     </form>
   </div>
   

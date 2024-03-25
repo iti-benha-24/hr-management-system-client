@@ -26,9 +26,6 @@ export class PublicHolidayGetAllComponent implements OnInit {
     this.holidayservice.Delete(id).subscribe( (o) => { this.getAllHolidays(); }) ;
   }
 
-  update( name : any , day : string  , id : number ){
-    this.holidayservice.setData( name , day , id  );
-    this.router.navigateByUrl('/update');
-  }
+  
   
 }

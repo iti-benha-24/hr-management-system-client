@@ -18,6 +18,11 @@ export class PublicHolidayService {
     return this.httpClient.get("https://localhost:7057/api/PublicHolidays/getall");
 
   }
+  GetById(id:number) : Observable<any>{
+
+    return this.httpClient.get("https://localhost:7057/api/PublicHolidays/getById /"+id);
+
+  }
 
   Delete( Id : number) : Observable<any>{
 
@@ -31,19 +36,10 @@ export class PublicHolidayService {
 
   }
   
-  Update ( holidayData : any  , id : number ) : Observable<any>{
+  Update ( id : number ,holidayData : any) : Observable<any>{
 
-    return this.httpClient.put(`https://localhost:7057/api/PublicHolidays/Update/${id}` , holidayData);
+    return this.httpClient.put<any>("https://localhost:7057/api/PublicHolidays/Update/"+id , holidayData);
   }
 
-  setData( name : any , day : any , id : any  ){
-    this.name = name ;
-    this.day = day ;
-    this.id = id ;
-  }
-
-  getData(){
-    return [this.name , this.day , this.id ] ;
-  }
-
+  
 }

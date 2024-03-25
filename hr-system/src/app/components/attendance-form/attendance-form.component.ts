@@ -83,6 +83,7 @@ export class AttendanceFormComponent implements OnInit{
       this.attendanceService.getEmployeeAttendanceById(this.attendId).subscribe({
         next: (response) => {
           this.myForm.patchValue(response);
+          console.log(response);
         },
         error: (error) => {
           console.log("there are error in get all employees")
