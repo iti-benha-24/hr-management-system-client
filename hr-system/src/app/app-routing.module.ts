@@ -9,7 +9,6 @@ import { SalaryReportComponent } from './components/salary-report/salary-report.
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthGuardService } from 'src/services/auth-guard.service';
 import { PublicHolidayGetAllComponent } from './components/public-holiday-get-all/public-holiday-get-all.component';
-import { PublicHolidayUpdateComponent } from './components/public-holiday-update/public-holiday-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { PublicHolidayInsertComponent } from './components/public-holiday-insert/public-holiday-insert.component';
 import { EmployeeComponent } from './components/employee/employee.component';
@@ -28,7 +27,7 @@ const routes: Routes = [
   { path: 'edit/:id', component: AttendanceFormComponent, canActivate: [AuthGuardService] },
   { path: "holidays", component: PublicHolidayGetAllComponent, canActivate: [AuthGuardService] },
   { path: "insert", component: PublicHolidayInsertComponent, canActivate: [AuthGuardService] },
-  { path: 'update', component: PublicHolidayUpdateComponent, canActivate: [AuthGuardService] },
+  { path: 'editholiday/:id', component: PublicHolidayInsertComponent, canActivate: [AuthGuardService] },
   {path:'employee',component:EmployeeComponent, canActivate: [AuthGuardService] },
   { path:'addEmployee',component:AddEmployeeComponent, canActivate: [AuthGuardService] },
   {path:'addEmployee/:id',component:AddEmployeeComponent, canActivate: [AuthGuardService] },

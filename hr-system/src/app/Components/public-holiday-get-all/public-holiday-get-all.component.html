@@ -14,7 +14,7 @@
         <td>{{ h.day }}</td>
         <td>
           <button class="btn btn-danger" (click)="delete(h.id)">Delete</button>
-          <button class="btn btn-primary" (click)="update(h.name , h.day , h.id )">Update</button>
+          <button class="btn btn-primary" [routerLink]="['/editholiday',h.id]">Update</button>
         </td>
       </tr>
     </tbody>

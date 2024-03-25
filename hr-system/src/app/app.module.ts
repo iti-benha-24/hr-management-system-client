@@ -3,9 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PublicHolidayGetAllComponent } from './components/public-holiday-get-all/public-holiday-get-all.component';
-import { PublicHolidayUpdateComponent } from './components/public-holiday-update/public-holiday-update.component';
 import { PublicHolidayInsertComponent } from './components/public-holiday-insert/public-holiday-insert.component';
-
 import { SalaryReportComponent } from './components/salary-report/salary-report.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AttendanceComponent } from './components/attendance/attendance.component';
@@ -30,7 +28,6 @@ import { HomeComponent } from './components/home/home.component';
     HeaderComponent,
     LoginComponent,
     PublicHolidayGetAllComponent,
-    PublicHolidayUpdateComponent,
     PublicHolidayInsertComponent,
     EmployeeComponent,
     GetEmpByIdComponent,
