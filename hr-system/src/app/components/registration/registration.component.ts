@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Iuser } from 'src/app/models/iuser';
 import { confirmPasswordValidator } from '../custom-validators/cross-field-validation';
 import { RegisterService } from 'src/services/register.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -12,7 +13,7 @@ import { RegisterService } from 'src/services/register.service';
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private registerService: RegisterService) {
+  constructor(private fb: FormBuilder, private registerService: RegisterService,private router:Router) {
     this.registrationForm = this.fb.group({
       FullName: ['', [Validators.required]],
       Username: ['', [Validators.required]],
@@ -36,6 +37,7 @@ export class RegistrationComponent implements OnInit {
       let user = <Iuser>this.registrationForm.value as Iuser
       this.registerService.registerUser(user).subscribe(
         Response => {
+          this.router.navigate(['/home']);
           alert("User registered Successfully")
         },
         Error => {
