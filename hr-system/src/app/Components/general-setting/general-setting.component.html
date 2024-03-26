@@ -1,0 +1,40 @@
+{{settingForm.value |json}}
+<form [formGroup]="settingForm" (ngSubmit)="onSubmit()" class="container mt-5">
+    <!-- overtime -->
+    <div class="form-group">
+      <label for="overtime">overtime</label>
+      <input type="text" id="overtime" formControlName="overtimeHour" class="form-control" placeholder="Hour">
+      <div [hidden]="settingForm.get('overtimeHour')?.valid || settingForm.get('overTimeHour')?.untouched">
+        <small *ngIf="settingForm.get('overtimeHour')?.errors?.['required'] && settingForm.get('overtimeHour')?.touched" class="text-danger">overTime is required</small>
+      </div>
+    </div>
+  
+    <!-- discount -->
+    <div class="form-group">
+        <label for="discount">discount</label>
+        <input type="text" id="discountHour" formControlName="discountHour" class="form-control" placeholder="Hour">
+        <div [hidden]="settingForm.get('discountHour')?.valid || settingForm.get('discountHour')?.untouched">
+          <small *ngIf="settingForm.get('discountHour')?.errors?.['required'] && settingForm.get('discountHour')?.touched" class="text-danger">discount is required</small>
+        </div>
+     </div>
+     <div class="form-group">
+        <label for="weekend1">Weekend1:</label>
+        <select class="form-control" formControlName="weekend1">
+          <option value="">Select Weekend</option>
+          <option *ngFor="let weekday of weekdays" [value]="weekday">{{ weekday }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="weekend2">Weekend2:</label>
+        <select  class="form-control" formControlName="weekend2">
+          <option value="">Select Weekend</option>
+          <option *ngFor="let weekday of weekdays" [value]="weekday">{{ weekday }}</option>
+        </select>
+      </div>
+      
+  
+    <button type="submit" class="btn btn-primary" [disabled]="settingForm.invalid">{{generalSetting == null ? "Add" :"Edit"}}</button>
+    
+
+  </form>
+  

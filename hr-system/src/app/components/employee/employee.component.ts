@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmployeeService } from 'src/app/services/employee.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class EmployeeComponent implements OnInit {
   employees:any[]=[];
- constructor(private empService:EmployeeService){
+ constructor(private empService:EmployeeService , private router:Router){
  }
   ngOnInit(): void {
     this.getAllEmployee();
@@ -22,6 +23,9 @@ export class EmployeeComponent implements OnInit {
  {
   this.empService.deleteEmployee(id).subscribe((o)=>{this.getAllEmployee()})
 
+ }
+ addSettings(id:number){
+  this.router.navigate(['/settings', id]);
  }
 
 }

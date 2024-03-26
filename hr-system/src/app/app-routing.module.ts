@@ -14,6 +14,7 @@ import { PublicHolidayInsertComponent } from './components/public-holiday-insert
 import { EmployeeComponent } from './components/employee/employee.component';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { HomeComponent } from './components/home/home.component';
+import { GeneralSettingComponent } from './components/general-setting/general-setting.component';
 const routes: Routes = [
   // Add routes here
 
@@ -31,6 +32,8 @@ const routes: Routes = [
   {path:'employee',component:EmployeeComponent, canActivate: [AuthGuardService] },
   { path:'addEmployee',component:AddEmployeeComponent, canActivate: [AuthGuardService] },
   {path:'addEmployee/:id',component:AddEmployeeComponent, canActivate: [AuthGuardService] },
+  {path:'settings/:id',component:GeneralSettingComponent, canActivate: [AuthGuardService] },
+
   { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 

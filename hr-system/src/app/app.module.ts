@@ -16,6 +16,7 @@ import { AddEmployeeComponent } from './components/add-employee/add-employee.com
 import { EmployeeComponent } from './components/employee/employee.component';
 import { GetEmpByIdComponent } from './components/get-emp-by-id/get-emp-by-id.component';
 import { HomeComponent } from './components/home/home.component';
+import { GeneralSettingComponent } from './components/general-setting/general-setting.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { HomeComponent } from './components/home/home.component';
     GetEmpByIdComponent,
     AddEmployeeComponent,
     HomeComponent,
+    GeneralSettingComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,9 +46,6 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]
