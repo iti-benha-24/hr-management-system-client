@@ -6,13 +6,12 @@
   display: grid;
   grid-template-columns: 2fr 0fr;
   grid-gap: 30px;
-  /* margin-top: 10px; */
+
 }
 
 .details .recentOrders {
   position: relative;
-  /* display: grid; */
-  /* min-height: 500px; */
+  
   background: var(--white);
   padding: 20px;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);

@@ -1,30 +1,39 @@
-<form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">Role Name:</label>
-    <input type="text" id="name" formControlName="name">
-  </div>
-
-
-  <div formArrayName="permissions">
-    <div *ngFor="let permission of permissionsControls; let i = index" [formGroupName]="i">
-        <p>{{ permission.get('section')?.value }}</p>
-     
-      <label>
-        <input type="checkbox" formControlName="canRead"> Can Read
-      </label>
-      <label>
-        <input type="checkbox" formControlName="canAdd"> Can Add
-      </label>
-      <label>
-        <input type="checkbox" formControlName="canEdit"> Can Edit
-      </label>
-      <label>
-        <input type="checkbox" formControlName="canDelete"> Can Delete
-      </label>
+<div class="details">
+  <div class="recentOrders">
+    <div class="cardHeader">
+      <h2>Roles</h2>
     </div>
+    <form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label for="name" class="">Role Name :</label>
+        <input type="text" id="name" formControlName="name" class="form-control w-50" placeholder="Enter Role Name">
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>Can Read</th>
+            <th>Can Add</th>
+            <th>Can Edit</th>
+            <th>Can Delete</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="permissions">
+          <ng-container *ngFor=" let permission of permissionsControls; let i=index" [formGroupName]="i">
+            <tr>
+              <td>{{ permission.get('section')?.value }}</td>
+              <td><input type="checkbox" formControlName="canRead"></td>
+              <td><input type="checkbox" formControlName="canAdd"></td>
+              <td><input type="checkbox" formControlName="canEdit"></td>
+              <td><input type="checkbox" formControlName="canDelete"></td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <div class="form-group text-end mt-3 addBtn col-md-12">
+        <button type="submit" class="btn" style="width: 90px;">Add</button>
+      </div>
+    </form>
+
   </div>
-  <button type="submit">Submit</button>
-</form>
-
-
-
+</div>

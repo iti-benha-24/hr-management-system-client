@@ -11,18 +11,13 @@ export class HeaderComponent implements OnInit{
   constructor(private loginService:LoginService){
     
   }
+
   ngOnInit(): void {
+    const listItems = document.querySelectorAll(".navigation li");
     this.role=this.loginService.getUserRole();
     console.log(this.loginService.getUserRole());
     console.log(this.role);
     console.log("hellllo");
-
-  }
-
-
-  ngOnInit(): void {
-    const listItems = document.querySelectorAll(".navigation li");
-
     listItems.forEach(item => {
       const li = item as HTMLElement;
       li.addEventListener("mouseover", () => {

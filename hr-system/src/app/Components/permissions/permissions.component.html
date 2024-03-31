@@ -1,21 +1,35 @@
-<!-- roles.component.html -->
-<button class="btn btn-primary btn-sm" (click)="navigateToAddPermission()">Add new role</button>
 
-<table class="table">
-    <thead>
-      <tr>
-        <th>اسم المجموعة</th>
-        <th>الإجراءات</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let role of permissionRoles">
-        <td>{{ role.name }}</td>
-        <td>
-          <button class="btn btn-primary btn-sm" (click)="navigateToEditPermission(role.roleId)">edit</button>
-          <button class="btn btn-danger btn-sm" (click)="deleteRole(role.roleId)">delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="details">
+    <div class="recentOrders">
+      <div class="cardHeader">
+        <h2>Roles</h2>
+      </div>
   
+      <table>
+        <thead>
+        <tr>
+          <th>Role</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of permissionRoles">
+          <td>{{ role.name }}</td>
+          <td>
+            <button class="btn" (click)="navigateToEditPermission(role.roleId)">
+              <i class="fas fa-edit"></i>
+            </button>
+                      
+            
+            <button class="btn" (click)="deleteRole(role.roleId)">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="text-end mt-3 addBtn">
+        <a (click)="navigateToAddPermission()" class="btn">Add Role</a>
+      </div>
+    </div>
+  </div>

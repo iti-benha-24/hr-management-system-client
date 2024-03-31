@@ -1,55 +1,3 @@
-<!-- <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="container mt-5">
-    <div class="form-group">
-      <label for="FullName">Full Name</label>
-      <input type="text" id="fullname" formControlName="FullName" class="form-control" placeholder="Enter Full Name">
-      <small *ngIf="registrationForm.get('FullName')?.errors?.['required'] && registrationForm.get('FullName')?.touched" class="text-danger">Full Name is required</small>
-    </div>
-  
-    <div class="form-group">
-      <label for="Username">Username</label>
-      <input type="text" id="Username" formControlName="Username" class="form-control" placeholder="Enter Username">
-      <small *ngIf="registrationForm.get('Username')?.errors?.['required'] && registrationForm.get('Username')?.touched" class="text-danger">Username is required</small>
-    </div>
-  
-    <div class="form-group">
-      <label for="Email">Email</label>
-      <input type="email" id="Email" formControlName="Email" class="form-control" placeholder="Enter Email">
-      <small *ngIf="registrationForm.get('Email')?.errors?.['required'] && registrationForm.get('Email')?.touched" class="text-danger">Email is required</small>
-      <small *ngIf="registrationForm.get('Email')?.errors?.['email'] && registrationForm.get('Email')?.touched" class="text-danger">Enter valid email</small>
-    </div>
-  
-    <div class="form-group">
-      <label for="Password">Password</label>
-      <input type="password" id="Password" formControlName="Password" class="form-control">
-      <small *ngIf="registrationForm.get('Password')?.errors?.['required'] && registrationForm.get('Password')?.touched" class="text-danger">Password is required</small>
-      <small *ngIf="registrationForm.get('Password')?.errors?.['pattern'] && registrationForm.get('Password')?.touched" class="text-danger">Passwords must be at least 6 characters with at least one non-alphanumeric character, one lowercase, and one uppercase</small>
-    </div>
-  
-    
-    <div class="form-group">
-      <label for="confirmedPassword">Confirm Password</label>
-      <input type="password" id="confirmedPassword" formControlName="confirmedPassword" class="form-control">
-      <div *ngIf="(registrationForm.get('Password')?.touched && registrationForm.get('confirmedPassword')?.touched) && (registrationForm.get('confirmedPassword')?.invalid || registrationForm.errors?.['unmatchedPassword'])">
-        <small *ngIf="registrationForm.get('confirmedPassword')?.errors?.['required']" class="text-danger">Confirm password is required</small>
-        <small *ngIf="registrationForm.errors?.['unmatchedPassword']" class="text-danger">Confirm password must match password</small>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="roleName">Role</label>
-      <select class="form-control" id="roleName" formControlName="roleName">
-        <option value="">Select Role</option>
-        <option *ngFor="let role of roles" [value]="role.name">{{ role.name }}</option>
-        </select>
-      <div *ngIf="(registrationForm.get('roleName')?.touched && registrationForm.get('roleName')?.invalid)">
-        <small *ngIf="registrationForm.get('roleName')?.errors?.['required']" class="text-danger">Role is required</small>
-      </div>
-    </div>
-  
-    <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">Register</button>
-  </form>
-   -->
-
-
 
 <div class="details">
   <div class="recentOrders">
@@ -104,6 +52,16 @@
             password is required</small>
           <small *ngIf="registrationForm.errors?.['unmatchedPassword']" class="text-danger">Confirm password must match
             password</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="roleName">Role</label>
+        <select class="form-control" id="roleName" formControlName="roleName">
+          <option value="">Select Role</option>
+          <option *ngFor="let role of roles" [value]="role.name">{{ role.name }}</option>
+          </select>
+        <div *ngIf="(registrationForm.get('roleName')?.touched && registrationForm.get('roleName')?.invalid)">
+          <small *ngIf="registrationForm.get('roleName')?.errors?.['required']" class="text-danger">Role is required</small>
         </div>
       </div>
 

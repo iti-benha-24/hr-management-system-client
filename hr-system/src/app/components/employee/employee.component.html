@@ -25,10 +25,8 @@
           <td>{{ a.salary }}</td>
           <td>{{ a.nationality }}</td>
           <td>
-            <button class="btn btn-danger" (click)="navigateToEditEmployee(a.id)">
-              Update
-            </button>
-            <button class="btn" [routerLink]="['/addEmployee', a.id]">
+            
+            <button class="btn" (click)="navigateToEditEmployee(a.id)">
               <i class="fas fa-edit"></i>
             </button>
 
@@ -43,10 +41,8 @@
         </tr>
       </tbody>
     </table>
-    <button (click)="navigateToAddEmployee()" >add employee</button>
-
     <div class="text-end mt-3 addBtn">
-      <a [routerLink]="['/addEmployee']" class="btn">Add Employee</a>
+      <a (click)="navigateToAddEmployee()" class="btn">Add Employee</a>
     </div>
   </div>
 </div>
