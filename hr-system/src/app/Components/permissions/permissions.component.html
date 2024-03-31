@@ -1,0 +1,21 @@
+<!-- roles.component.html -->
+<button class="btn btn-primary btn-sm" (click)="navigateToAddPermission()">Add new role</button>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>اسم المجموعة</th>
+        <th>الإجراءات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let role of permissionRoles">
+        <td>{{ role.name }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="navigateToEditPermission(role.roleId)">edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteRole(role.roleId)">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  

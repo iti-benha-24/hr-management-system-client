@@ -1,4 +1,4 @@
-<button [routerLink]="['/addEmployee']">add employee</button>
+<button (click)="navigateToAddEmployee()" >add employee</button>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -20,7 +20,7 @@
         <button class="btn btn-danger" (click)="deleteEmp(a.id)">Delete</button>
       </td>
       <td>
-        <button class="btn btn-danger" [routerLink]="['/addEmployee', a.id]">
+        <button class="btn btn-danger" (click)="navigateToEditEmployee(a.id)">
           Update
         </button>
       </td>

@@ -11,18 +11,29 @@ import { IUserCredentials } from 'src/app/models/iuserCredentials';
 export class LoginService {
   private baseUrl = 'https://localhost:7057/api/Auth'
   private jwtHelper = new JwtHelperService();
+  userRole:string='';
   constructor(private http: HttpClient, private router: Router) { }
   loginUser(user: IUserCredentials) {
     return this.http.post<any>(`${this.baseUrl}/login`, user)
       .pipe(
         tap(response => {
           if (response && response.token) {
-            localStorage.setItem('token', response.token)
+           console.log(response.roles[0]);
+           this.userRole = response.roles[0];
+           console.log(this.userRole);
+            localStorage.setItem('token', response.token);
+            localStorage.setItem('role', response.roles[0]);
+            
           }
         })
 
       )
   }
+  getUserRole(): string {
+    return this.userRole;
+  }
+
+  
 
   logout() {
     localStorage.removeItem('token');

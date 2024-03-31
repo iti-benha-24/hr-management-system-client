@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     if(this.loginForm.valid){
       let user = <IUserCredentials> this.loginForm.value as IUserCredentials
-      this.loginService.loginUser(user).subscribe( () =>{
+      this.loginService.loginUser(user).subscribe( (res) =>{
+        console.log(res);
         this.router.navigateByUrl('/home')
       })
     }
