@@ -34,6 +34,16 @@
         <small *ngIf="registrationForm.errors?.['unmatchedPassword']" class="text-danger">Confirm password must match password</small>
       </div>
     </div>
+    <div class="form-group">
+      <label for="roleName">Role</label>
+      <select class="form-control" id="roleName" formControlName="roleName">
+        <option value="">Select Role</option>
+        <option *ngFor="let role of roles" [value]="role.name">{{ role.name }}</option>
+        </select>
+      <div *ngIf="(registrationForm.get('roleName')?.touched && registrationForm.get('roleName')?.invalid)">
+        <small *ngIf="registrationForm.get('roleName')?.errors?.['required']" class="text-danger">Role is required</small>
+      </div>
+    </div>
   
     <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">Register</button>
   </form>

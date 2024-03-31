@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/services/login.service';
 
 @Component({
@@ -6,9 +6,19 @@ import { LoginService } from 'src/services/login.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
+  role:string='';
+  constructor(private loginService:LoginService){
+    
+  }
+  ngOnInit(): void {
+    this.role=this.loginService.getUserRole();
+    console.log(this.loginService.getUserRole());
+    console.log(this.role);
+    console.log("hellllo");
 
-  constructor(private loginService:LoginService){}
+  }
+
 
   ngOnInit(): void {
     const listItems = document.querySelectorAll(".navigation li");

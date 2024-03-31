@@ -1,0 +1,30 @@
+<form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Role Name:</label>
+    <input type="text" id="name" formControlName="name">
+  </div>
+
+
+  <div formArrayName="permissions">
+    <div *ngFor="let permission of permissionsControls; let i = index" [formGroupName]="i">
+        <p>{{ permission.get('section')?.value }}</p>
+     
+      <label>
+        <input type="checkbox" formControlName="canRead"> Can Read
+      </label>
+      <label>
+        <input type="checkbox" formControlName="canAdd"> Can Add
+      </label>
+      <label>
+        <input type="checkbox" formControlName="canEdit"> Can Edit
+      </label>
+      <label>
+        <input type="checkbox" formControlName="canDelete"> Can Delete
+      </label>
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+
+

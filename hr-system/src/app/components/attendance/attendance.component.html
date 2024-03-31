@@ -3,7 +3,9 @@
 </div>
 <div class="container py-3" dir="rtl"> 
     <div class="d-flex justify-content-between">
-        
+        <div>
+            <button class="btn btn-primary" (click)="navigateToAddAttendance()">Add</button>
+        </div>
         <div class="d-flex">
             <button class="btn btn-secondary me-3" (click)="getAttendancesByName(search)">بحث</button> 
             <input type="text" class="form-control me-3" name="search" [(ngModel)]="search" placeholder="بحث"> 
@@ -59,8 +61,9 @@
                 {{a.date | date:'yyyy-MM-dd'}}
             </td>
             <td>
-                <button class="btn btn-primary me-3" [routerLink]="['/edit', a.id]" >تعديل</button> 
-                <button class="btn btn-danger me-3" (click)="deleteAttendance(a.id)">حذف</button> 
+      <button class="btn btn-danger me-3" (click)="navigateToEditAttendance(a.id)">Edit</button>
+                <button class="btn btn-danger" (click)="deleteAttendance(a.id)">Delete</button>
+            </td>
         </tr>
     </tbody>
 </table>

@@ -13,7 +13,7 @@
         <td>{{ h.day }}</td>
         <td>
           <button class="btn btn-danger" (click)="delete(h.id)">Delete</button>
-          <button class="btn btn-primary" [routerLink]="['/editholiday',h.id]">Update</button>
+          <button class="btn btn-primary" (click)="navigateToEditPermission(h.id)">Update</button>
         </td>
       </tr>
     </tbody>
@@ -55,6 +55,8 @@
 </div>
 </div>
 </div>
+
+<a class="btn btn-success" (click)="navigateToAddHoliday()">Insert New Public Holiday</a>
 <a routerLink="/insert" class="btn btn-success">Insert New Public Holiday</a> -->
 
 

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Iuser } from 'src/app/models/iuser';
 import { confirmPasswordValidator } from '../custom-validators/cross-field-validation';
 import { RegisterService } from 'src/services/register.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PermissionService } from 'src/app/services/permission.service';
 
 @Component({
   selector: 'app-registration',
@@ -11,15 +13,18 @@ import { RegisterService } from 'src/services/register.service';
 })
 export class RegistrationComponent implements OnInit {
   registrationForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private registerService: RegisterService) {
+ roles:any;
+  constructor(private fb: FormBuilder, private registerService: RegisterService,private permissionService:PermissionService ,private router:Router) {
     this.registrationForm = this.fb.group({
       FullName: ['', [Validators.required]],
       Username: ['', [Validators.required]],
       Email: ['', [Validators.required, Validators.email]],
 
+
       Password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^a-zA-Z0-9]).{6,}$')]],
-      confirmedPassword: ['', [Validators.required]]
+      confirmedPassword: ['', [Validators.required]],
+      roleName: ['',Validators.required]
+
     },
       { validators: [confirmPasswordValidator()] })
   }
@@ -28,7 +33,11 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
 
-
+    this.permissionService.getAllRoles().subscribe({
+      next:(res)=>{
+        this.roles=res;
+      }
+    })
   }
 
   onSubmit() {
@@ -36,6 +45,7 @@ export class RegistrationComponent implements OnInit {
       let user = <Iuser>this.registrationForm.value as Iuser
       this.registerService.registerUser(user).subscribe(
         Response => {
+          this.router.navigate(['/home']);
           alert("User registered Successfully")
         },
         Error => {
