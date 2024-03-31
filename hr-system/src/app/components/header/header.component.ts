@@ -10,6 +10,28 @@ export class HeaderComponent {
 
   constructor(private loginService:LoginService){}
 
+  ngOnInit(): void {
+    const listItems = document.querySelectorAll(".navigation li");
+
+    listItems.forEach(item => {
+      const li = item as HTMLElement;
+      li.addEventListener("mouseover", () => {
+        this.activeLink(li);
+      });
+    });
+    const toggle = document.querySelector(".toggle");
+    const navigation = document.querySelector(".navigation");
+    const main = document.querySelector(".main");
+
+    if(toggle && navigation && main){
+      toggle.addEventListener("click", () => {
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+      });
+    }
+  }
+
+
   logout(){
     this.loginService.logout();
   }
@@ -17,6 +39,14 @@ export class HeaderComponent {
   isLoggedIn():boolean{
     return this.loginService.isLoggedIn();
   }
+  activeLink(item: HTMLElement) {
+    const listItems = document.querySelectorAll(".navigation li");
+    listItems.forEach((li: any) => {
+      li.classList.remove("hovered");
+    });
+    item.classList.add("hovered");
+  }
+  
 
 
 }

@@ -17,6 +17,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { GetEmpByIdComponent } from './components/get-emp-by-id/get-emp-by-id.component';
 import { HomeComponent } from './components/home/home.component';
 import { GeneralSettingComponent } from './components/general-setting/general-setting.component';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -46,6 +47,8 @@ import { GeneralSettingComponent } from './components/general-setting/general-se
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    IonicModule.forRoot(),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

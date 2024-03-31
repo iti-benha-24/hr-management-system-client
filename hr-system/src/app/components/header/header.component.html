@@ -1,24 +1,151 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="isLoggedIn()">
-  <div class="container">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/home']">Home</a>
+<!-- 
+<div class="content">
+  <router-outlet></router-outlet>
+</div> 
+
+<div class="sidebar" dir="rtl">
+  <ul>
+    <li>
+      <a routerLink="/home" routerLinkActive="active">
+        <i class="material-icons">home</i> الصفحه الرئيسيه
+      </a>
+    </li>
+    <li>
+      <a routerLink="/employee" routerLinkActive="active">
+        <i class="material-icons">people</i> الموظفين
+      </a>
+    </li>
+    <li>
+      <a routerLink="/holidays" routerLinkActive="active">
+        <i class="material-icons">date_range</i> الاجازات الرسميه
+      </a>
+    </li>
+    <li>
+      <a routerLink="/register" routerLinkActive="active">
+        <i class="material-icons">person_add</i> Register
+      </a>
+    </li>
+    <li>
+      <a routerLink="/attendance" routerLinkActive="active">
+        <i class="material-icons">date_range</i> الحضور والانصراف
+      </a>
+    </li>
+    <li>
+      <a (click)="logout()" routerLinkActive="active">
+        <i class="material-icons">exit_to_app</i> تسجيل خروج
+      </a>
+    </li>
+    
+  </ul>
+</div>
+
+ -->
+
+<div class="">
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="#">
+          <span class="icon ">
+          </span>
+          <span class="titl mx-2 logo pt-2" style="font-size: 40px; height: 70px; overflow: hidden;">HR System</span>
+        </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="employee">Employee</a>
+
+      <li class="d-flex align-items-center">
+        <a routerLink="/home" routerLinkActive="active">
+          
+          <i class="material-icons">home</i>
+          
+          <span class="title">Home</span>
+        </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="holidays">Public Holidays</a>
+
+      <li>
+        <a routerLink="/employee" routerLinkActive="active">
+          <span class="icon">
+            <i class="material-icons">people</i>
+          </span>
+          <span class="title">Employees</span>
+        </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="register">Register</a>
+      <li>
+        <a routerLink="/attendance" routerLinkActive="active">
+
+          <span class="icon">
+            <i class="material-icons">assignment_turned_in</i>
+          </span>
+          <span class="title">Attendance</span>
+        </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="login">LogIn</a>
+
+      <li>
+        <a routerLink="/salaryReport" routerLinkActive="active">
+
+          <span class="icon">
+            <i class="material-icons">monetization_on</i>
+
+          </span>
+          <span class="title">Salaries</span>
+        </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="logout" (click)="logout()">Logout</a>
+
+      <li>
+        <a routerLink="/holidays" routerLinkActive="active">
+          <span class="icon">
+            <i class="material-icons">date_range</i>
+          </span>
+          <span class="title">Public Holidays</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <span class="icon">
+            <i class="material-icons"> vpn_key
+            </i>
+
+          </span>
+          <span class="title">Permissions</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/register" routerLinkActive="active">
+
+          <span class="icon">
+            <i class="material-icons">settings</i>
+          </span>
+          <span class="title">Admins</span>
+        </a>
+      </li>
+
+
+      <li>
+        <a (click)="logout()" routerLinkActive="active">
+          <span class="icon">
+            <i class="material-icons">exit_to_app</i>
+          </span>
+          <span class="title">Sign Out</span>
+        </a>
       </li>
     </ul>
+
+
   </div>
-</nav>
+  <div class="main">
+    <div class="topbar">
+      <div class="toggle">
+        <i class="material-icons">menu</i>
+
+      </div>
+
+      <div class="search">
+        <label>
+          <input type="text" placeholder="Search here">
+          <ion-icon name="search-outline"></ion-icon>
+        </label>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>

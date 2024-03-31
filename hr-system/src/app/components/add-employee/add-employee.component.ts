@@ -14,7 +14,7 @@ export class AddEmployeeComponent {
     employeeId:number;
     employees:any;
     departments:any;
-fname: any;
+    fname: any;
 
     constructor(private empservice:EmployeeService,private fb:FormBuilder,private router:Router,private active:ActivatedRoute) {
       this.employeeId= Number(this.active.snapshot.paramMap.get("id"));

@@ -1,47 +1,43 @@
-<div class="container text-center bg-dark py-2 text-white"> 
-    <p>attendance works!</p>
-    
-    <button [routerLink]="['/salaryReport']" class="btn btn-primary">Salaries Report</button>
+<!-- <div class="container text-center  py-2 text-white" dir="rtl">    
+    <button [routerLink]="['/salaryReport']" class="btn btn-primary">تقرير الرواتب</button> 
 </div>
-<div class="container py-3">
+<div class="container py-3" dir="rtl"> 
     <div class="d-flex justify-content-between">
-        <div>
-            <button [routerLink]="['/add']" class="btn btn-primary">Add</button>
-        </div>
+        
         <div class="d-flex">
-            <button class="btn btn-secondary me-3" (click)="getAttendancesByName(search)">Search</button>
-            <input type="text" class="form-control me-3" name="search" [(ngModel)]="search" placeholder="search">
+            <button class="btn btn-secondary me-3" (click)="getAttendancesByName(search)">بحث</button> 
+            <input type="text" class="form-control me-3" name="search" [(ngModel)]="search" placeholder="بحث"> 
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" dir="rtl"> 
     <div class="d-flex justify-content-start flex-row-reverse">
-        <input type="date" class="form-control w-25 me-3" name="startDate" [(ngModel)]="startDate" placeholder="startDate">
-        <input type="date" class="form-control w-25 me-3" name="endDate" [(ngModel)]="endDate" placeholder="endDate">
-        <button class="btn btn-secondary me-3" (click)="getAttendancesByDate(startDate, endDate)">Display</button>
+        <input  type="date" class="form-control w-25 me-3" name="startDate" [(ngModel)]="startDate" placeholder="تاريخ البدء"> 
+        <input type="date" class="form-control w-25 me-3" name="endDate" [(ngModel)]="endDate" placeholder="تاريخ الانتهاء"> 
+        <button class="btn btn-secondary me-3" (click)="getAttendancesByDate(startDate, endDate)">عرض</button> 
     </div>
 </div>
-<div class="container my-4">
+<div class="container my-4" dir="rtl"> 
 <table class="table table-hover table-bordered">
     <thead>
         <tr>
             <th>
-                depatment
+                القسم
             </th>
             <th>
-                employee
+                الموظف
             </th>
             <th>
-                arrive
+                الوصول
             </th>
             <th>
-                leave
+                المغادرة
             </th>
             <th>
-                day
+                اليوم
             </th>
             <th>
-                Actions
+                الإجراءات
             </th>
         </tr>
     </thead>
@@ -63,10 +59,65 @@
                 {{a.date | date:'yyyy-MM-dd'}}
             </td>
             <td>
-                <button class="btn btn-danger me-3" [routerLink]="['/edit', a.id]" >Edit</button>
-                <button class="btn btn-danger" (click)="deleteAttendance(a.id)">Delete</button>
-            </td>
+                <button class="btn btn-primary me-3" [routerLink]="['/edit', a.id]" >تعديل</button> 
+                <button class="btn btn-danger me-3" (click)="deleteAttendance(a.id)">حذف</button> 
         </tr>
     </tbody>
 </table>
+<div class="text-start">
+    <button [routerLink]="['/add']" class="btn btn-primary">إضافة</button> 
+</div>
+</div> -->
+
+<div class="details">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>Attendance</h2>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Department</td>
+                    <td>Employee</td>
+                    <td>ArrivalTime</td>
+                    <td>LeaveTime</td>
+                    <td>Day</td>
+                    <td></td>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let a of attendances">
+                    <td>
+                        {{a.departmentName}}
+                    </td>
+                    <td>
+                        {{a.employeeName}}
+                    </td>
+                    <td>
+                        {{a.arrivalTime}}
+                    </td>
+                    <td>
+                        {{a.leaveTime}}
+                    </td>
+                    <td>
+                        {{a.date | date:'yyyy-MM-dd'}}
+                    </td>
+                    <td>
+                        <button class="btn" [routerLink]="['/edit', a.id]">
+                            <i class="fas fa-edit"></i>
+                        </button>
+
+                        <button class="btn" (click)="deleteAttendance(a.id)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-end mt-3 addBtn">
+            <a [routerLink]="['/add']" class="btn" style="width: 90px;">Add</a>
+        </div>
+    </div>
 </div>

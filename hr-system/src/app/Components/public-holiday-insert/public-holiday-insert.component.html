@@ -1,4 +1,4 @@
-
+<!-- 
   <div class="container mt-5">
     <form [formGroup]="formgroup" (ngSubmit)="onSubmit()" class="bg-light p-4 rounded">
       <div class="form-group">
@@ -18,4 +18,36 @@
       
     </form>
   </div>
-  
+   -->
+<div class="details">
+  <div class="recentOrders">
+    <div class="cardHeader">
+      <h2>New Holiday</h2>
+    </div>
+    <form [formGroup]="formgroup" (ngSubmit)="onSubmit()" class="row ">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="holidayName">Holiday Name</label>
+          <input type="text" class="form-control" id="holidayName" placeholder="Enter Holiday Name"
+            formControlName="name">
+          <div
+            *ngIf="formgroup.get('name')?.invalid && (formgroup.get('name')?.dirty || formgroup.get('name')?.touched)"
+            class="text-danger">
+            <div *ngIf="formgroup.get('name')?.errors?.['required']">Name is required.</div>
+            <div *ngIf="formgroup.get('name')?.errors?.['minlength']">Name must be at least 4 characters long.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="holidayDate">Holiday Date</label>
+          <input type="date" class="form-control" id="holidayDate" placeholder="Enter Holiday Date"
+            formControlName="day">
+        </div>
+      </div>
+      <div class="addBtn text-end mt-5">
+        <button type="submit" style="width: 90px;" class="btn">{{id == 0 ? "Add" : "Update"}}</button>
+      </div>
+    </form>
+  </div>
+</div>

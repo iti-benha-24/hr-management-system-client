@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IUserCredentials } from 'src/app/models/iuserCredentials';
 import { LoginService } from 'src/services/login.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,6 +12,7 @@ import { LoginService } from 'src/services/login.service';
 })
 export class LoginComponent implements OnInit {
   loginForm : FormGroup;
+  responseMsg:any
   constructor(private fb:FormBuilder , private loginService:LoginService , private router:Router ){
     this.loginForm = this.fb.group({
       Email: ['', [Validators.required, Validators.email]],
@@ -24,10 +26,18 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     if(this.loginForm.valid){
       let user = <IUserCredentials> this.loginForm.value as IUserCredentials
-      this.loginService.loginUser(user).subscribe( () =>{
-        this.router.navigateByUrl('/home')
-      })
+      this.loginService.loginUser(user).subscribe( {
+        next:(response)=>{
+          this.router.navigateByUrl('/home')
+        },
+        error: (error)=>{
+          this.responseMsg = error.error
+        }
+       } )
+      }
     }
   }
 
-}
+
+
+
