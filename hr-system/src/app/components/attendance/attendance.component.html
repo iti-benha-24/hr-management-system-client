@@ -1,18 +1,18 @@
 
-<div class="details">
+<div class="details" dir="auto">
     <div class="recentOrders">
         <div class="cardHeader">
-            <h2>Attendance</h2>
+            <h2>{{'attendance' | translate }}</h2>
         </div>
 
         <table>
             <thead>
                 <tr>
-                    <td>Department</td>
-                    <td>Employee</td>
-                    <td>ArrivalTime</td>
-                    <td>LeaveTime</td>
-                    <td>Day</td>
+                    <td>{{'deptName' | translate }}</td>
+                    <td>{{'employees' | translate }}</td>
+                    <td>{{'arriveTime' | translate }}</td>
+                    <td>{{'leaveTime' | translate }}</td>
+                    <td>{{'day' | translate }}</td>
                     <td></td>
 
                 </tr>
@@ -46,7 +46,7 @@
             </tbody>
         </table>
         <div class="text-end mt-3 addBtn">
-            <a (click)="navigateToAddAttendance()" class="btn" style="width: 90px;">Add</a>
+            <a (click)="navigateToAddAttendance()" class="btn">{{'addEmployee' | translate }}</a>
         </div>
     </div>
 </div>

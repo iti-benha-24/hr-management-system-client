@@ -1,5 +1,5 @@
 
-<div class="">
+<div class="" dir="auto">
   <div class="navigation">
     <ul>
       <li>
@@ -13,7 +13,8 @@
       <li class="d-flex align-items-center">
         <a routerLink="/home" routerLinkActive="active">
           <i class="material-icons">home</i>
-          <span class="title">Home</span>
+          
+          <span class="title">{{'home' | translate }}</span>
         </a>
       </li>
 
@@ -22,7 +23,7 @@
           <span class="icon">
             <i class="material-icons">people</i>
           </span>
-          <span class="title">Employees</span>
+          <span class="title">{{'employees' | translate }}</span>
         </a>
       </li>
       <li>
@@ -31,7 +32,7 @@
           <span class="icon">
             <i class="material-icons">assignment_turned_in</i>
           </span>
-          <span class="title">Attendance</span>
+          <span class="title">{{'attendance' | translate }}</span>
         </a>
       </li>
 
@@ -40,7 +41,7 @@
           <span class="icon">
             <i class="material-icons">monetization_on</i>
           </span>
-          <span class="title">Salaries</span>
+          <span class="title">{{'salaryies' | translate }}</span>
         </a>
       </li>
 
@@ -49,7 +50,7 @@
           <span class="icon">
             <i class="material-icons">date_range</i>
           </span>
-          <span class="title">Public Holidays</span>
+          <span class="title">{{'publicHolidays' | translate}}</span>
         </a>
       </li>
 
@@ -59,7 +60,7 @@
             <i class="material-icons"> vpn_key
             </i>
           </span>
-          <span class="title">Permissions</span>
+          <span class="title">{{'permisions' | translate }}</span>
         </a>
       </li>
 
@@ -69,7 +70,7 @@
           <span class="icon">
             <i class="material-icons">settings</i>
           </span>
-          <span class="title">Admins</span>
+          <span class="title">{{'admins' | translate }}</span>
         </a>
       </li>
       <li>
@@ -77,7 +78,7 @@
           <span class="icon">
             <i class="material-icons">exit_to_app</i>
           </span>
-          <span class="title">Sign Out</span>
+          <span class="title">{{'logOut' | translate }}</span>
         </a>
       </li>
     </ul>
@@ -87,10 +88,18 @@
       <div class="toggle">
         <i class="material-icons">menu</i>
       </div>
+      <ul class = "navbar-nav ml-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <select name="" id="" (change)="changeLang($event)">
+                <option [selected]="lang === 'en'" value="en">English</option>
+                <option [selected]="lang === 'ar'" value="ar">Arabic</option>
+            </select>
+          </li>
+      </ul >
       <div class="search">
         <label>
           <input type="text" placeholder="Search here">
-          <ion-icon name="search-outline"></ion-icon>
+          
         </label>
       </div>
     </div>

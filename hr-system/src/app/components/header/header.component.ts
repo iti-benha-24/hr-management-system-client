@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { LoginService } from 'src/services/login.service';
 
 @Component({
@@ -8,9 +9,8 @@ import { LoginService } from 'src/services/login.service';
 })
 export class HeaderComponent implements OnInit{
   role:string='';
-  constructor(private loginService:LoginService){
-    
-  }
+  lang : any ; 
+  constructor(private loginService:LoginService ,  private translateService : TranslateService ){}
 
   ngOnInit(): void {
     const listItems = document.querySelectorAll(".navigation li");
@@ -27,16 +27,24 @@ export class HeaderComponent implements OnInit{
     const toggle = document.querySelector(".toggle");
     const navigation = document.querySelector(".navigation");
     const main = document.querySelector(".main");
-
+    
     if(toggle && navigation && main){
       toggle.addEventListener("click", () => {
         navigation.classList.toggle("active");
         main.classList.toggle("active");
       });
     }
+    this.lang = localStorage.getItem('lang');
+    this.translateService.use(this.lang);
+    console.log(this.lang);
+
   }
 
-
+  changeLang( Lang : any ){
+    const selectedLanguage = Lang.target.value ;
+    localStorage.setItem( 'lang' , selectedLanguage );
+    this.translateService.use(selectedLanguage);
+  }
   logout(){
     this.loginService.logout();
   }

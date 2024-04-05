@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { AttendanceComponent } from './components/attendance/attendance.component';
+import { AttendanceComponent } from './Components/attendance/attendance.component';
 import { LoginService } from "src/services/login.service";
 @Component({
   selector: 'app-root',
