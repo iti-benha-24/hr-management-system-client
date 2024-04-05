@@ -1,32 +1,31 @@
 
-<div class="details">
+<div class="details" dir="auto">
   <div class="recentOrders">
     <div class="cardHeader">
-      <h2>New Holiday</h2>
+      <h2>{{'newHoliday' | translate }}</h2>
     </div>
-    <form [formGroup]="formgroup" (ngSubmit)="onSubmit()" class="row ">
+    <form [formGroup]="formgroup" (ngSubmit)="onSubmit()" class="row" dir="auto">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="holidayName">Holiday Name</label>
-          <input type="text" class="form-control" id="holidayName" placeholder="Enter Holiday Name"
+          <label for="holidayName">{{'holidayName' | translate }}</label>
+          <input type="text" class="form-control" id="holidayName" placeholder="{{'placeHolderHolyName' | translate }}"
             formControlName="name">
-          <div
-            *ngIf="formgroup.get('name')?.invalid && (formgroup.get('name')?.dirty || formgroup.get('name')?.touched)"
+          <div *ngIf="formgroup.get('name')?.invalid && (formgroup.get('name')?.dirty || formgroup.get('name')?.touched)"
             class="text-danger">
-            <div *ngIf="formgroup.get('name')?.errors?.['required']">Name is required.</div>
-            <div *ngIf="formgroup.get('name')?.errors?.['minlength']">Name must be at least 4 characters long.</div>
+            <div *ngIf="formgroup.get('name')?.errors?.['required']">{{'valNameRequired'|translate}}</div>
+            <div *ngIf="formgroup.get('name')?.errors?.['minlength']">{{'valNameLong'|translate }}</div>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <label for="holidayDate">Holiday Date</label>
+          <label for="holidayDate">{{'day'|translate }} </label>
           <input type="date" class="form-control" id="holidayDate" placeholder="Enter Holiday Date"
             formControlName="day">
         </div>
       </div>
-      <div class="addBtn text-end mt-5">
-        <button type="submit" style="width: 90px;" class="btn">{{id == 0 ? "Add" : "Update"}}</button>
+      <div class="addBtn text-end mt-5" dir="auto">
+        <button type="submit" style="width: 90px;" class="btn">{{id == 0 ? ('add' | translate) : ('update' | translate)}}</button>
       </div>
     </form>
   </div>

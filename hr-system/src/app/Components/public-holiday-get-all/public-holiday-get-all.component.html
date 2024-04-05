@@ -1,15 +1,15 @@
 
-<div class="details">
+<div class="details" dir="auto">
   <div class="recentOrders">
     <div class="cardHeader">
-      <h2>Public Holiday</h2>
+      <h2>{{'publicHolidays' | translate }}</h2>
     </div>
 
     <table>
       <thead>
         <tr>
-          <td>Holiday Name</td>
-          <td>Day</td>
+          <td>{{'holidayName' | translate }}</td>
+          <td>{{'day' | translate }}</td>
           <td></td>
         </tr>
       </thead>
@@ -30,7 +30,7 @@
       </tbody>
     </table>
     <div class="text-end mt-3 addBtn">
-      <a [routerLink]="['/insert']" class="btn" style="width: 90px;">Add </a>
+      <a [routerLink]="['/insert']" class="btn">{{'insertNewPublicHoliday' | translate }} </a>
     </div>
   </div>
 </div>
