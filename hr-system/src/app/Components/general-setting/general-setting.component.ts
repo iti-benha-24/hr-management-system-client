@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IGeneralSetting } from 'src/app/models/igeneral-setting';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { GeneralSettingService } from 'src/services/general-setting.service';
+import { weekendValidator } from '../custom-validators/week-end-validation';
 
 @Component({
   selector: 'app-general-setting',
@@ -14,7 +15,7 @@ export class GeneralSettingComponent implements OnInit {
   settingForm: FormGroup;
   employeeId: number;
   generalSetting : any;
-  weekdays: string[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  weekdays: string[] = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday','Saturday'];
 
   constructor(private GS: GeneralSettingService, private fb: FormBuilder, private activate: ActivatedRoute, private employee: EmployeeService , private router:Router) {
     this.employeeId = Number(this.activate.snapshot.paramMap.get("id"));
@@ -24,7 +25,7 @@ export class GeneralSettingComponent implements OnInit {
       weekend1: ['', Validators.required],
       weekend2: ['', Validators.required],
 
-    })
+    },{ validator: weekendValidator });
   }
   ngOnInit(): void {
     this.GS.getSetting(this.employeeId).subscribe({

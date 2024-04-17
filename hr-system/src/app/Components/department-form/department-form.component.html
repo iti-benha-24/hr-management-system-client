@@ -1,0 +1,25 @@
+
+<div class="details">
+    <div class="recentOrders">
+      <div class="cardHeader">
+        <h2>New Department</h2>
+      </div>
+      <form [formGroup]="formgroup" (ngSubmit)="onSubmit()" class="row ">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="deptName">Department Name</label>
+            <input type="text" class="form-control" id="deptName" placeholder="Enter Department Name"
+              formControlName="deptName">
+            <div
+              *ngIf="formgroup.get('deptName')?.invalid && (formgroup.get('deptName')?.dirty || formgroup.get('deptName')?.touched)"
+              class="text-danger">
+              <div *ngIf="formgroup.get('deptName')?.errors?.['required']">Department is required.</div>
+            </div>
+          </div>
+        </div> 
+        <div class="addBtn text-end mt-5">
+          <button type="submit" style="width: 90px;" class="btn">{{id == 0 ? "Add" : "Update"}}</button>
+        </div>
+      </form>
+    </div>
+  </div>

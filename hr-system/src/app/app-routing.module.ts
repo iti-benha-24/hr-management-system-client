@@ -17,13 +17,17 @@ import { HomeComponent } from './components/home/home.component';
 import { GeneralSettingComponent } from './components/general-setting/general-setting.component';
 import { PermissionsComponent } from './components/permissions/permissions.component';
 import { PermissionFormComponent } from './components/permission-form/permission-form.component';
+import { DepartmentComponent } from './components/department/department.component';
+import { DepartmentFormComponent } from './components/department-form/department-form.component';
+import { UsersComponent } from './components/users/users.component';
 const routes: Routes = [
   // Add routes here
 
   
   { path: 'home', component:HomeComponent , canActivate: [AuthGuardService] },
-  { path: 'register', component: RegistrationComponent },
+  { path: 'register', component: RegistrationComponent , canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuardService] },
   { path: 'attendance', component: AttendanceComponent, canActivate: [AuthGuardService] },
   { path: 'salaryReport', component: SalaryReportComponent, canActivate: [AuthGuardService] },
   { path: 'add', component: AttendanceFormComponent, canActivate: [AuthGuardService] },
@@ -31,6 +35,12 @@ const routes: Routes = [
   { path: "holidays", component: PublicHolidayGetAllComponent, canActivate: [AuthGuardService] },
   { path: "insert", component: PublicHolidayInsertComponent, canActivate: [AuthGuardService] },
   { path: 'editholiday/:id', component: PublicHolidayInsertComponent, canActivate: [AuthGuardService] },
+ 
+
+  {path:'department',component:DepartmentComponent, canActivate: [AuthGuardService] },
+  {path:'addDept',component:DepartmentFormComponent, canActivate: [AuthGuardService] },
+  {path:'editDept/:id',component:DepartmentFormComponent, canActivate: [AuthGuardService] },
+
   {path:'employee',component:EmployeeComponent, canActivate: [AuthGuardService] },
   { path:'addEmployee',component:AddEmployeeComponent, canActivate: [AuthGuardService] },
   {path:'addEmployee/:id',component:AddEmployeeComponent, canActivate: [AuthGuardService] },
@@ -39,7 +49,7 @@ const routes: Routes = [
   {path:'newrole',component:PermissionFormComponent, canActivate: [AuthGuardService] },
   {path:'editrole/:id',component:PermissionFormComponent, canActivate: [AuthGuardService] },
 
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 

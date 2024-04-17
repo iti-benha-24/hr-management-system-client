@@ -11,6 +11,7 @@
       <table>
         <thead>
           <tr>
+            
             <th>Section</th>
             <th>Can Read</th>
             <th>Can Add</th>
@@ -21,6 +22,7 @@
         <tbody formArrayName="permissions">
           <ng-container *ngFor=" let permission of permissionsControls; let i=index" [formGroupName]="i">
             <tr>
+
               <td>{{ permission.get('section')?.value }}</td>
               <td><input type="checkbox" formControlName="canRead"></td>
               <td><input type="checkbox" formControlName="canAdd"></td>

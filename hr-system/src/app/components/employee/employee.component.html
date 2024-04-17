@@ -3,7 +3,6 @@
     <div class="cardHeader">
       <h2>Employees</h2>
     </div>
-
     <table>
       <thead>
         <tr>
@@ -11,7 +10,7 @@
           <td>Country</td>
           <td>City</td>
           <td>Salary</td>
-          <td>Nationality</td>
+          <td>Department</td>
           <td></td>
 
         </tr>
@@ -19,11 +18,11 @@
 
       <tbody>
         <tr *ngFor="let a of employees">
-          <td>{{ a.firstName }}{{ a.lastName }}</td>
+          <td>{{ a.firstName }} {{ a.lastName }}</td>
           <td>{{ a.country }}</td>
           <td>{{ a.city }}</td>
           <td>{{ a.salary }}</td>
-          <td>{{ a.nationality }}</td>
+          <td>{{ a.department.deptName }}</td>
           <td>
             
             <button class="btn" (click)="navigateToEditEmployee(a.id)">

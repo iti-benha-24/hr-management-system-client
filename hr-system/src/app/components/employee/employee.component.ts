@@ -40,12 +40,12 @@ navigateToEditEmployee(id:number) {
 if (userRole) {
   this.permissionService.getEmployeePermissions(userRole).subscribe(
     (permissions) => {
-      console.log(permissions);
-      // Update permission variables based on fetched permissions
+
       this.canEditEmployee = permissions[0].canEdit;
       this.canDeleteEmployee = permissions[0].canDelete;
       this.canAddEmployee = permissions[0].canAdd;
       this.canReadEmployee = permissions[0].canRead;
+       this.getAllEmployee();
     },
     (error: any) => {
       console.error('Failed to fetch permissions for Employees section:', error);
@@ -54,12 +54,13 @@ if (userRole) {
 } else {
   console.error('User role not found in local storage');
 }
-    this.getAllEmployee();
-    
   }
- getAllEmployee()
+  getAllEmployee()
  {
-  this.empService.getAllEmployee().subscribe((o)=>{this.employees=o})
+  console.log(this.canReadEmployee);
+  if(this.canReadEmployee){
+    this.empService.getAllEmployee().subscribe((o)=>{this.employees=o})
+  }
  }
  deleteEmp(id:number)
  {

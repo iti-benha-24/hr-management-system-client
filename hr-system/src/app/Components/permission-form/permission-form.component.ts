@@ -50,6 +50,7 @@ roleId:string;
     });
     this.addPermissionControls();
   }
+  
   ngOnInit(): void {
     if(this.roleId != ''){
       this.permissionService.getRoleById(this.roleId).subscribe({

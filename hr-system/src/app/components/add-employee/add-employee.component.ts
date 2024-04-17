@@ -35,7 +35,7 @@ export class AddEmployeeComponent {
       })
     }
     onSubmit(){
-
+    
     if(this.employeeForm.valid){
       if(this.employeeId == 0){
       const formData = this.employeeForm.value;
@@ -44,8 +44,6 @@ export class AddEmployeeComponent {
 
       this.empservice.addEmployee(formData).subscribe({
         next: (response) => {
-          // console.log(response);
-          console.log(`${formData} hereeeeeeeeeeeee`)
           this.router.navigate(['/employee']);
         },
         error: (error) => {
@@ -97,9 +95,15 @@ export class AddEmployeeComponent {
   }
   ngOnInit(): void {
     if(this.employeeId != 0){
+
       this.empservice.getEmployeeById(this.employeeId).subscribe({
         next: (response) => {
-          this.employeeForm.patchValue(response);
+          console.log(response);
+          const formData = response;
+          formData.birthDate= new Date(response.birthDate).toISOString().split('T')[0];
+          formData.hireDate= new Date(response.hireDate).toISOString().split('T')[0];
+
+          this.employeeForm.patchValue(formData);
         },
         error: (error) => {
           console.log("there are error in get all employees")

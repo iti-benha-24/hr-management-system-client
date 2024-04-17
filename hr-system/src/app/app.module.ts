@@ -19,7 +19,10 @@ import { HomeComponent } from './components/home/home.component';
 import { GeneralSettingComponent } from './components/general-setting/general-setting.component';
 import { PermissionsComponent } from './components/permissions/permissions.component';
 import { PermissionFormComponent } from './components/permission-form/permission-form.component';
-import { IonicModule } from '@ionic/angular';
+import { DepartmentComponent } from './components/department/department.component';
+import { DepartmentFormComponent } from './components/department-form/department-form.component';
+import { UsersComponent } from './components/users/users.component';
+// import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -40,6 +43,9 @@ import { IonicModule } from '@ionic/angular';
     GeneralSettingComponent,
     PermissionsComponent,
     PermissionFormComponent,
+    DepartmentComponent,
+    DepartmentFormComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,10 +55,6 @@ import { IonicModule } from '@ionic/angular';
     ReactiveFormsModule ,
     AppRoutingModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    FormsModule,
-    IonicModule.forRoot(),
-
   ],
   providers: [],
   bootstrap: [AppComponent]
