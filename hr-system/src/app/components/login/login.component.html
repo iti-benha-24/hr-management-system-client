@@ -1,10 +1,10 @@
-<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+<div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto" dir="auto">
   <div class="card mt-5 card0 border-0">
     <div class="row d-flex">
       <div class="col-lg-6">
         <div class="card1 pb-5">
           <div class="row">
-            <span class="title mx-5 logo pt-3" style="font-size: 40px; height: 70px; overflow: hidden;">HR</span>
+            <span class="title mx-5 logo pt-3" style="font-size: 40px; height: 70px; overflow: hidden;">{{'hr' | translate}}</span>
           </div>
           <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
             <img src="https://i.imgur.com/uNGdWHi.png" class="image">
@@ -14,38 +14,38 @@
       <div class="col-lg-6">
         <div class="card2 card border-0 px-4 py-5">
           <div class="row mb-4 px-3">
-            <h6 class="mb-0 mr-4 mt-2 text-center  format">Login</h6>
+            <h6 class="mb-0 mr-4 mt-2 text-center  format">{{'login' | translate }}</h6>
           </div>
 
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class=" px-3">
               <label class="mb-1">
-                <h6 class="mb-0 text-md format">Email Address</h6>
+                <h6 class="mb-0 text-md format">{{'email' | translate }}</h6>
               </label>
               <input class="mb-2 form-control form-control-lg" type="email" name="Email"
-                placeholder="Enter a valid email address" formControlName="Email">
+                placeholder="{{'placeHolderEmail' | translate }}" formControlName="Email">
               <div *ngIf="loginForm.get('Email')?.invalid && loginForm.get('Email')?.touched" class="text-danger mb-2">
-                <small *ngIf="loginForm.get('Email')?.errors?.['required']">Email is required</small>
-                <small *ngIf="loginForm.get('Email')?.errors?.['email']">Enter a valid email address</small>
+                <small *ngIf="loginForm.get('Email')?.errors?.['required']">{{'valEmailRequired' | translate }}</small>
+                <small *ngIf="loginForm.get('Email')?.errors?.['email']">{{'validEmail' | translate }}</small>
               </div>
             </div>
 
             <div class=" px-3">
               <label class="mb-1">
-                <h6 class="mb-0 text-md format">Password</h6>
+                <h6 class="mb-0 text-md format">{{'password' | translate }}</h6>
               </label>
               <input class="mb-2 form-control form-control-lg" type="password" name="Password"
-                placeholder="Enter your password" formControlName="Password">
+                placeholder="{{'placeHolderPassword' | translate }}" formControlName="Password">
               <div *ngIf="loginForm.get('Password')?.invalid && loginForm.get('Password')?.touched"
                 class="text-danger mb-2">
-                <small *ngIf="loginForm.get('Password')?.errors?.['required']">Password is required</small>
+                <small *ngIf="loginForm.get('Password')?.errors?.['required']">{{'valPasswordRequired'|translate}}</small>
               </div>
             </div>
             <div class="text-danger text-center mt-2">
               {{responseMsg}}
             </div>
             <div class="row mb-3 px-3 mt-5 justify-content-center mb-5">
-              <button type="submit" class="btn btn-blue text-center">Login</button>
+              <button type="submit" class="btn btn-blue text-center">{{'login' | translate}}</button>
             </div>
           </form>
         </div>

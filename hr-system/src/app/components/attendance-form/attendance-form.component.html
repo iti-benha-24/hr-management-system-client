@@ -1,48 +1,52 @@
-
-<div class="details">
+<div class="details" dir="auto">
     <div class="recentOrders">
         <div class="cardHeader">
-            <h2>Employee Attendance </h2>
+            <h2>{{'empAttendace' | translate }}</h2>
         </div>
         <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
             <div class="my-3">
-                <label for="employeeId" class="form-label">Employee Name</label>
+                <label for="employeeId" class="form-label">{{'empName' | translate }}</label>
                 <select class="form-select" formControlName="employeeId" name="employeeId">
-                    <option value="0">Select an employee</option>
+                    <option value="0">{{'selEmployee' | translate }}</option>
                     <option *ngFor="let emp of employees" [value]="emp.id">{{emp.firstName}}</option>
                 </select>
                 <div
                     *ngIf="myForm.get('employeeId')?.errors && (myForm.get('employeeId')?.dirty || myForm.get('employeeId')?.touched)">
-                    <div *ngIf="myForm.get('employeeId')?.errors?.['required']" class="text-danger">Employee is
-                        required.</div>
+                    <div *ngIf="myForm.get('employeeId')?.errors?.['required']" class="text-danger">Employee is required.</div>
                 </div>
             </div>
             <div class="my-3">
-                <label for="arrivalTime" class="form-label">Arrival Time</label>
+                <label for="arrivalTime" class="form-label">{{'arriveTime' | translate }}</label>
                 <input class="form-control" formControlName="arrivalTime" type="time" name="arrivalTime"
-                    placeholder="Enter arrival time">
+                    placeholder="{{'placeHolderArriveTime' | translate }}">
                 <div
                     *ngIf="myForm.get('arrivalTime')?.invalid && (myForm.get('arrivalTime')?.dirty || myForm.get('arrivalTime')?.touched)">
-                    <div *ngIf="myForm.get('arrivalTime')?.errors?.['required']" class="text-danger">Arrival time is
-                        required.</div>
+                    <div *ngIf="myForm.get('arrivalTime')?.errors?.['required']" class="text-danger">
+                        {{'valArriveTimeRequired' | translate }}</div>
                 </div>
             </div>
             <div class="my-3" *ngIf="attendId != 0">
-                <label for="leaveTime" class="form-label">Leave Time</label>
+                <label for="leaveTime" class="form-label">{{'leaveTime' | translate}}</label>
                 <input class="form-control" formControlName="leaveTime" type="time" name="leaveTime"
                     placeholder="Enter leave time">
+                <div
+                    *ngIf="myForm.get('leaveTime')?.invalid && (myForm.get('leaveTime')?.dirty || myForm.get('leaveTime')?.touched)">
+                    <div *ngIf="myForm.get('leaveTime')?.errors?.['required']" class="text-danger">
+                        {{'valLeaveTimeRequired' | translate }}</div>
+                </div>
             </div>
             <div class="my-3">
-                <label for="date" class="form-label">Date</label>
+                <label for="date" class="form-label">{{'day' | translate }}</label>
                 <input class="form-control" formControlName="date" type="date" name="date" placeholder="Enter date">
                 <div *ngIf="myForm.get('date')?.errors && (myForm.get('date')?.dirty || myForm.get('date')?.touched)">
-                    <div *ngIf="myForm.get('date')?.errors?.['required']" class="text-danger">Date is required.</div>
+                    <div *ngIf="myForm.get('date')?.errors?.['required']" class="text-danger">{{'valDateRequired'|translate }}</div>
                 </div>
             </div>
             <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
             <div class="addBtn text-end mt-5">
+                <button type="submit" style="width: 90px;" class="btn">{{ attendId == 0 ? ('create' | translate) :
+                    ('update' | translate) }}</button>
                 <button [routerLink]="['/attendance']" class="btn btn-secondary me-3"style="width: 90px; background-color: gray; border: none">Back</button>
-                <button type="submit" style="width: 90px;" class="btn">{{attendId == 0 ? "Add" : "Update"}}</button>
             </div>
         </form>
 

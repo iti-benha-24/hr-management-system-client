@@ -1,14 +1,14 @@
 
-  <div class="details">
+  <div class="details" dir="auto">
     <div class="recentOrders">
       <div class="cardHeader">
-        <h2>Roles</h2>
+        <h2>{{'users' | translate }}</h2>
       </div>
   
       <table>
         <thead>
         <tr>
-          <th>Role</th>
+          <th>{{'role' | translate}}</th>
           <th></th>
         </tr>
       </thead>
@@ -29,7 +29,7 @@
         </tbody>
       </table>
       <div class="text-end mt-3 addBtn">
-        <a (click)="navigateToAddPermission()" class="btn">Add Role</a>
+        <a (click)="navigateToAddPermission()" class="btn">{{'addRole'|translate }}</a>
       </div>
     </div>
   </div>

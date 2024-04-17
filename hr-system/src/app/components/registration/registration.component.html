@@ -1,59 +1,57 @@
 
-<div class="details">
+<div class="details" dir="auto">
   <div class="recentOrders">
     <div class="cardHeader">
       <h2>New Admin</h2>
     </div>
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="container mt-5">
       <div class="form-group">
-        <label for="FullName">Full Name</label>
-        <input type="text" id="fullname" formControlName="FullName" class="form-control" placeholder="Enter Full Name">
+        <label for="FullName">{{'fullName' | translate }}</label>
+        <input type="text" id="fullname" formControlName="FullName" class="form-control" placeholder="{{'placeHolderFullName' | translate }}">
         <small
           *ngIf="registrationForm.get('FullName')?.errors?.['required'] && registrationForm.get('FullName')?.touched"
-          class="text-danger">Full Name is required</small>
+          class="text-danger">{{'valFullNameRequired' | translate }}</small>
       </div>
 
       <div class="form-group">
-        <label for="Username">Username</label>
-        <input type="text" id="Username" formControlName="Username" class="form-control" placeholder="Enter Username">
+        <label for="Username">{{'username' | translate }}</label>
+        <input type="text" id="Username" formControlName="Username" class="form-control" placeholder="{{'placeHolderUsername' | translate }}">
         <small
           *ngIf="registrationForm.get('Username')?.errors?.['required'] && registrationForm.get('Username')?.touched"
-          class="text-danger">Username is required</small>
+          class="text-danger">{{'valUsernameRequired' | translate }}</small>
       </div>
 
       <div class="form-group">
-        <label for="Email">Email</label>
-        <input type="email" id="Email" formControlName="Email" class="form-control" placeholder="Enter Email">
+        <label for="Email">{{'email' | translate }}</label>
+        <input type="email" id="Email" formControlName="Email" class="form-control" placeholder="{{'placeHolderEmail' | translate }}">
         <small *ngIf="registrationForm.get('Email')?.errors?.['required'] && registrationForm.get('Email')?.touched"
-          class="text-danger">Email is required</small>
+          class="text-danger">{{'valEmailRequired' | translate }}</small>
         <small *ngIf="registrationForm.get('Email')?.errors?.['email'] && registrationForm.get('Email')?.touched"
-          class="text-danger">Enter valid email</small>
+          class="text-danger">{{'validEmail' | translate }}</small>
       </div>
 
       <div class="form-group">
-        <label for="Password">Password</label>
+        <label for="Password">{{'password' | translate }}</label>
         <input type="password" id="Password" formControlName="Password" class="form-control">
         <small
           *ngIf="registrationForm.get('Password')?.errors?.['required'] && registrationForm.get('Password')?.touched"
-          class="text-danger">Password is required</small>
+          class="text-danger">{{'valPasswordRequired' | translate }}</small>
         <small
           *ngIf="registrationForm.get('Password')?.errors?.['pattern'] && registrationForm.get('Password')?.touched"
-          class="text-danger">Passwords must be at least 6 characters with at least one non-alphanumeric character, one
-          lowercase, and one uppercase</small>
+          class="text-danger">{{'passwordError' | translate }}</small>
       </div>
 
 
       <div class="form-group">
-        <label for="confirmedPassword">Confirm Password</label>
+        <label for="confirmedPassword">{{'confirmPassword' | translate }}</label>
         <input type="password" id="confirmedPassword" formControlName="confirmedPassword" class="form-control">
         <div
           *ngIf="(registrationForm.get('Password')?.touched && registrationForm.get('confirmedPassword')?.touched) && (registrationForm.get('confirmedPassword')?.invalid || registrationForm.errors?.['unmatchedPassword'])">
-          <small *ngIf="registrationForm.get('confirmedPassword')?.errors?.['required']" class="text-danger">Confirm
-            password is required</small>
-          <small *ngIf="registrationForm.errors?.['unmatchedPassword']" class="text-danger">Confirm password must match
-            password</small>
+          <small *ngIf="registrationForm.get('confirmedPassword')?.errors?.['required']" class="text-danger">{{'valConfirmPasswordRequired' | translate }}</small>
+          <small *ngIf="registrationForm.errors?.['unmatchedPassword']" class="text-danger">{{'matchPassword' | translate }}</small>
         </div>
       </div>
+
       <div class="form-group">
         <label for="roleName">Role</label>
         <select class="form-control" id="roleName" formControlName="roleName">

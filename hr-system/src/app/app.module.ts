@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PublicHolidayGetAllComponent } from './components/public-holiday-get-all/public-holiday-get-all.component';
-import { PublicHolidayInsertComponent } from './components/public-holiday-insert/public-holiday-insert.component';
-import { SalaryReportComponent } from './components/salary-report/salary-report.component';
-import { HttpClientModule } from '@angular/common/http';
-import { AttendanceComponent } from './components/attendance/attendance.component';
-import { AttendanceFormComponent } from './components/attendance-form/attendance-form.component';
+import { PublicHolidayGetAllComponent } from './Components/public-holiday-get-all/public-holiday-get-all.component';
+import { PublicHolidayInsertComponent } from './Components/public-holiday-insert/public-holiday-insert.component';
+import { SalaryReportComponent } from './Components/salary-report/salary-report.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AttendanceComponent } from './Components/attendance/attendance.component';
+import { AttendanceFormComponent } from './Components/attendance-form/attendance-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { LoginComponent } from './components/login/login.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -23,6 +26,11 @@ import { DepartmentComponent } from './components/department/department.componen
 import { DepartmentFormComponent } from './components/department-form/department-form.component';
 import { UsersComponent } from './components/users/users.component';
 // import { IonicModule } from '@ionic/angular';
+
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -53,10 +61,16 @@ import { UsersComponent } from './components/users/users.component';
     HttpClientModule ,
     FormsModule ,
     ReactiveFormsModule ,
-    AppRoutingModule,
-    AppRoutingModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

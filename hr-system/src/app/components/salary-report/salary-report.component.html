@@ -1,15 +1,15 @@
 
-<div class="details">
+<div class="details" dir="auto">
     <div class="recentOrders">
         <div class="cardHeader">
-            <h2>Salary Report</h2>
+            <h2>{{'salaryReport' | translate }}</h2>
         </div>
         <div class="container py-3">
             <div class="d-flex justify-content-between">
                 <div class="d-flex">
                     <input type="text" class="form-control me-3" name="search" [(ngModel)]="empName"
-                        placeholder="Search">
-                    <button class="btn btn-secondary me-3" (click)="getAttendancesByName(empName)">Search</button>
+                        placeholder="{{'search' | translate }}">
+                    <button class="btn btn-secondary me-3" (click)="getAttendancesByName(empName)">{{'search' | translate }}</button>
                 </div>
             </div>
         </div>
@@ -17,29 +17,29 @@
         <div class="container">
             <div class="d-flex justify-content-start ">
                 <select class="form-control w-25 me-3" name="month" [(ngModel)]="monthNumber">
-                    <option value="0">--Select Month--</option>
+                    <option value="0">{{'month'| translate }}</option>
                     <option *ngFor="let m of months" [value]="m.id">{{m.name}}</option>
                 </select>
                 <input type="number" class="form-control w-25 me-3" name="year" [(ngModel)]="yearNumber"
-                    placeholder="Year">
+                    placeholder="{{'year' | translate }}">
                 <button class="btn btn-secondary me-3"
-                    (click)="getSalaryReportByDate(monthNumber, yearNumber)">View</button>
+                    (click)="getSalaryReportByDate(monthNumber, yearNumber)">{{'view' | translate }}</button>
             </div>
         </div>
 
         <table class="mt-5 table-bordered text-center" style="font-size: 14px;">
             <thead>
                 <tr>
-                    <th>Employee</th>
-                    <th>Department</th>
-                    <th>Salary</th>
-                    <th>Attendance(d)</th>
-                    <th>Absent(d)</th>
-                    <th>Additional(h)</th>
-                    <th>Deducted(h)</th>
-                    <th>Additional Hours</th>
-                    <th>Deducted Hours</th>
-                    <th>Net Salary</th>
+                    <th>{{'empName' | translate }}</th>
+                    <th>{{'dept' | translate}}</th>
+                    <th>{{'salary' | translate }}</th>
+                    <th>{{'attendance' | translate }}</th>
+                    <th>{{'absent' | translate }}</th>
+                    <th>{{'additional' | translate }}</th>
+                    <th>{{'deducted' | translate }}</th>
+                    <th>{{'additionalHours' | translate }}</th>
+                    <th>{{'deductedHours' | translate }}</th>
+                    <th>{{'netSalary' | translate }}</th>
                 </tr>
             </thead>
             <tbody>
