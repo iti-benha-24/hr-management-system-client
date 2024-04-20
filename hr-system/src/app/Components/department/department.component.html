@@ -1,0 +1,34 @@
+
+<div class="details">
+    <div class="recentOrders">
+      <div class="cardHeader">
+        <h2>Departments</h2>
+      </div>
+  
+      <table>
+        <thead>
+          <tr>
+            <td>Department Name</td>
+            <td></td>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let d of departments">
+            <td>{{ d.deptName }}</td>
+            <td>
+              <button class="btn" [routerLink]="['/editDept',d.id]">
+                <i class="fas fa-edit"></i>
+              </button>
+              <button class="btn" (click)="deleteEmp(d.id)"><i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+  
+        </tbody>
+      </table>
+      <div class="text-end mt-3 addBtn">
+        <a [routerLink]="['/addDept']" class="btn" style="width: 90px;">Add </a>
+      </div>
+    </div>
+  </div>

@@ -13,4 +13,11 @@ export class RegisterService {
   registerUser(user: Iuser): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/register`, user)
   }
+
+  getAllUsers(){
+    return this.http.get(`https://localhost:7057/api/Users/GetAll`);
+  }
+  deleteUser(id:string){
+    return this.http.delete(`https://localhost:7057/api/Users/Delete/`+id);
+  }
 }

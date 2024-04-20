@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 
 export function confirmPasswordValidator(): ValidatorFn {
@@ -14,3 +14,4 @@ export function confirmPasswordValidator(): ValidatorFn {
         return(Password.value === confirmedPassword.value) ? null : errValue;
     }
 }
+

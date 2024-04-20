@@ -25,7 +25,7 @@
                         {{'valArriveTimeRequired' | translate }}</div>
                 </div>
             </div>
-            <div class="my-3">
+            <div class="my-3" *ngIf="attendId != 0">
                 <label for="leaveTime" class="form-label">{{'leaveTime' | translate}}</label>
                 <input class="form-control" formControlName="leaveTime" type="time" name="leaveTime"
                     placeholder="Enter leave time">
@@ -46,6 +46,7 @@
             <div class="addBtn text-end mt-5">
                 <button type="submit" style="width: 90px;" class="btn">{{ attendId == 0 ? ('create' | translate) :
                     ('update' | translate) }}</button>
+                <button [routerLink]="['/attendance']" class="btn btn-secondary me-3"style="width: 90px; background-color: gray; border: none">Back</button>
             </div>
         </form>
 

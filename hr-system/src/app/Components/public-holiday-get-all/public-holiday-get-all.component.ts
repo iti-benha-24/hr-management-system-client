@@ -38,7 +38,7 @@ export class PublicHolidayGetAllComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getAllHolidays();
+   
     const userRole = localStorage.getItem('role');
     if (userRole) {
       this.permissionService.getHolidayPermissions(userRole).subscribe(
@@ -47,6 +47,9 @@ export class PublicHolidayGetAllComponent implements OnInit {
           this.canDelete = permissions[0].canDelete;
           this.canAdd = permissions[0].canAdd;
           this.canRead = permissions[0].canRead;
+          if(this.canRead){
+            this.getAllHolidays();
+          }
         },
         (error: any) => {
           console.error('Failed to fetch permissions for Employees section:', error);

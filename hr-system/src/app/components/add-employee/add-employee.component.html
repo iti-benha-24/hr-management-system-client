@@ -158,7 +158,9 @@
           </div>
         </div>
         <div class="form-group text-end mt-3 addBtn col-md-12">
-          <button type="submit" class="btn" style="width: 90px;">{{'create' | translate }}</button>
+        
+          <button type="submit" class="btn" style="width: 90px;">{{employeeId == 0 ? ('create' | translate ) : ('update' | translate )}}</button>
+          <button [routerLink]="['/employee']" class="btn btn-secondary me-3"style="width: 90px; background-color: gray; border: none">Back</button>
         </div>
       </form>
     </div>

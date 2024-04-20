@@ -38,14 +38,7 @@ export class AttendanceComponent implements OnInit {
  
   
   ngOnInit(): void {
-    this.attendService.getAllAttendance().subscribe({
-      next: (response) => {
-        this.attendances =response;
-      },
-      error: (err) => {
-        console.log("error");
-      }
-    });
+   
 
     const userRole = localStorage.getItem('role');
 if (userRole) {
@@ -56,6 +49,16 @@ if (userRole) {
       this.canDelete = permissions[0].canDelete;
       this.canAdd = permissions[0].canAdd;
       this.canRead = permissions[0].canRead;
+      if(this.canRead){
+        this.attendService.getAllAttendance().subscribe({
+          next: (response) => {
+            this.attendances =response;
+          },
+          error: (err) => {
+            console.log("error");
+          }
+        });
+      }
       
     },
     (error: any) => {

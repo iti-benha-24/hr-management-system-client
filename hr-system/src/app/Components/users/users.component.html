@@ -1,0 +1,39 @@
+<div class="details">
+    <div class="recentOrders">
+      <div class="cardHeader">
+        <h2>Users</h2>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <td>Full Name</td>
+            <td>User Name</td>
+            <td>Email</td>
+            <td>Role</td>
+          
+            <td></td>
+  
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let a of users">
+            <td>{{ a.fullName }}</td>
+            <td>{{ a.userName }}</td>
+            <td>{{ a.email }}</td>
+            <td>{{ a.role }}</td>  
+            <td>
+              
+            
+              <button class="btn" (click)="deleteUser(a.id)">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-end mt-3 addBtn">
+        <a [routerLink]="['/register']" class="btn">Add Employee</a>
+      </div>
+    </div>
+  </div>

@@ -22,9 +22,7 @@ export class SalaryReportComponent implements OnInit {
     this.months = this.attendService.months;
   }
   ngOnInit(): void {
-    this.attendService.getAllEmployeesSalaryReport().subscribe(data => {
-      this.employees = data;
-    });
+ 
     const userRole = localStorage.getItem('role');
     if (userRole) {
       this.permissionService.getSalaryPermissions(userRole).subscribe(
@@ -33,6 +31,11 @@ export class SalaryReportComponent implements OnInit {
           this.canDeleteEmployee = permissions[0].canDelete;
           this.canAddEmployee = permissions[0].canAdd;
           this.canReadEmployee = permissions[0].canRead;
+          if(this.canReadEmployee){
+            this.attendService.getAllEmployeesSalaryReport().subscribe(data => {
+              this.employees = data;
+            });
+          }
         },
         (error: any) => {
           console.error('Failed to fetch permissions for Employees section:', error);
